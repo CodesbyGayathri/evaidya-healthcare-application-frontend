@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { PatientComponent } from './Patient/patient/patient.component';
+import { DoctorComponent } from './Doctor/doctor/doctor.component';
+import { AdminComponent } from './Admin/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PatientComponent,
+    DoctorComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
