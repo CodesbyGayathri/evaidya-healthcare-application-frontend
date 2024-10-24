@@ -1,0 +1,23 @@
+.button-container {
+    display: flex;
+    flex-direction: column; /* Align buttons vertically */
+    align-items: center; /* Center the buttons horizontally */
+    gap: 20px; /* Add some space between buttons */
+    width: 100%;
+  }
+  
+  .big-button {
+    width: 50%; /* Button takes 50% width */
+    padding: 20px; /* Increase padding for larger button size */
+    font-size: 18px; /* Increase text size */
+    background-color: #007bff; /* Button background color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .big-button:hover {
+    background-color: #0056b3; /* Darken background on hover */
+  }
+  

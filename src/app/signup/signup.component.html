@@ -1,1 +1,92 @@
-<p>signup works!</p>
+
+  <!-- Header -->
+  <header class="bg-dark text-white py-3 text-start px-5">
+    <h1 class="h3"><i class="bi bi-clipboard-plus"></i> e-Vaidya</h1>
+</header>
+<br>
+<div class="container">
+    <h2>Patient Signup</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" formControlName="firstName" class="form-control">
+        <div *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName').touched" class="text-danger">
+          First Name is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" formControlName="lastName" class="form-control">
+        <div *ngIf="signupForm.get('lastName')?.invalid && signupForm.get('lastName').touched" class="text-danger">
+          Last Name is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <select id="gender" formControlName="gender" class="form-control">
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+        <div *ngIf="signupForm.get('gender')?.invalid && signupForm.get('gender').touched" class="text-danger">
+          Gender is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="mobileNumber">Mobile Number:</label>
+        <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control">
+        <div *ngIf="signupForm.get('mobileNumber')?.invalid && signupForm.get('mobileNumber').touched" class="text-danger">
+          Mobile Number is required.
+        </div>
+      </div>
+  
+
+      <div class="form-group" formGroupName="user">
+        <label for="userEmail">Email Id:</label>
+        <input type="email" id="userEmail" formControlName="email" class="form-control">
+        <div *ngIf="signupForm.get('user.email')?.invalid && signupForm.get('user.email').touched" class="text-danger">
+          A valid email is required.
+        </div>
+      </div>
+  
+      <div class="form-group" formGroupName="user">
+        <label for="userPassword">Password:</label>
+        <input type="password" id="userPassword" formControlName="password" class="form-control">
+        <div *ngIf="signupForm.get('user.password')?.invalid && signupForm.get('user.password').touched" class="text-danger">
+          Password is required (min 6 characters).
+        </div>
+      </div>
+  
+      <div formGroupName="address">
+        <div class="form-group">
+          <label for="aptNumber">Apartment Number:</label>
+          <input type="text" id="aptNumber" formControlName="aptNumber" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="street">Street:</label>
+          <input type="text" id="street" formControlName="street" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="city">City:</label>
+          <input type="text" id="city" formControlName="city" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="state">State:</label>
+          <input type="text" id="state" formControlName="state" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="zipCode">Zip Code:</label>
+          <input type="text" id="zipCode" formControlName="zipCode" class="form-control">
+        </div>
+      </div>
+    <br>
+      <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Sign Up</button>
+    </form>
+  
+    <div *ngIf="message" class="alert alert-info mt-3">{{ message }}</div>
+  </div>
+  
