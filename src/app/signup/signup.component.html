@@ -5,88 +5,55 @@
 </header>
 <br>
 <div class="container">
-    <h2>Patient Signup</h2>
-    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" formControlName="firstName" class="form-control">
-        <div *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName').touched" class="text-danger">
-          First Name is required.
-        </div>
-      </div>
+  <h2 class="mb-4 text-center">New Patient SignUp</h2>
   
-      <div class="form-group">
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" formControlName="lastName" class="form-control">
-        <div *ngIf="signupForm.get('lastName')?.invalid && signupForm.get('lastName').touched" class="text-danger">
-          Last Name is required.
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label for="gender">Gender:</label>
-        <select id="gender" formControlName="gender" class="form-control">
-          <option value="">Select Gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Other">Other</option>
-        </select>
-        <div *ngIf="signupForm.get('gender')?.invalid && signupForm.get('gender').touched" class="text-danger">
-          Gender is required.
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <label for="mobileNumber">Mobile Number:</label>
-        <input type="text" id="mobileNumber" formControlName="mobileNumber" class="form-control">
-        <div *ngIf="signupForm.get('mobileNumber')?.invalid && signupForm.get('mobileNumber').touched" class="text-danger">
-          Mobile Number is required.
-        </div>
-      </div>
-  
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
-      <div class="form-group" formGroupName="user">
-        <label for="userEmail">Email Id:</label>
-        <input type="email" id="userEmail" formControlName="email" class="form-control">
-        <div *ngIf="signupForm.get('user.email')?.invalid && signupForm.get('user.email').touched" class="text-danger">
-          A valid email is required.
-        </div>
+    <div class="mb-3">
+      <label for="firstname" class="form-label">First Name</label>
+      <input type="text" id="firstname" class="form-control" formControlName="firstname">
+      <div *ngIf="signupForm.get('firstname')?.invalid && signupForm.get('firstname')?.touched" class="text-danger">
+        Please enter your First Name.
       </div>
-  
-      <div class="form-group" formGroupName="user">
-        <label for="userPassword">Password:</label>
-        <input type="password" id="userPassword" formControlName="password" class="form-control">
-        <div *ngIf="signupForm.get('user.password')?.invalid && signupForm.get('user.password').touched" class="text-danger">
-          Password is required (min 6 characters).
-        </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="lastname" class="form-label">Last Name</label>
+      <input type="text" id="lastname" class="form-control" formControlName="lastname">
+      <div *ngIf="signupForm.get('lastname')?.invalid && signupForm.get('lastname')?.touched" class="text-danger">
+        Please enter your Last Name.
       </div>
-  
-      <div formGroupName="address">
-        <div class="form-group">
-          <label for="aptNumber">Apartment Number:</label>
-          <input type="text" id="aptNumber" formControlName="aptNumber" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="street">Street:</label>
-          <input type="text" id="street" formControlName="street" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="city">City:</label>
-          <input type="text" id="city" formControlName="city" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="state">State:</label>
-          <input type="text" id="state" formControlName="state" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="zipCode">Zip Code:</label>
-          <input type="text" id="zipCode" formControlName="zipCode" class="form-control">
-        </div>
+    </div>
+    <!-- Email Input -->
+    <div class="mb-3">
+      <label for="email" class="form-label">User Email</label>
+      <input type="email" id="username" class="form-control" formControlName="email" placeholder="Enter your email">
+      <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="text-danger">
+        Please enter a valid email.
       </div>
-    <br>
-      <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Sign Up</button>
-    </form>
-  
-    <div *ngIf="message" class="alert alert-info mt-3">{{ message }}</div>
+    </div>
+
+    <!-- Password Input -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" id="password" class="form-control" formControlName="password" placeholder="Enter your password">
+      <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="text-danger">
+        Password must be at least 6 characters long.
+      </div>
+    </div>
+
+    <!-- Checkbox for Is Doctor -->
+   <!-- <div class="mb-3 form-check">
+      <input type="checkbox" id="isDoctor" class="form-check-input" formControlName="isDoctor">
+      <label class="form-check-label" for="isDoctor">Login as a Doctor?</label>
+    </div> -->
+    <div *ngIf="isWrongCred">
+      <p style="color:rgb(123, 25, 25);">Please enter the correct Email and Password</p>
+    </div>
+    <!-- Login Button -->
+    <button type="submit" class="btn btn-primary w-100" [disabled]="signupForm.invalid">Sign Up</button>
+  </form>
+  <div class="text-center p-2">
+  <p>Already have an account?<a routerLink="/login"> login</a></p>
   </div>
-  
+</div>

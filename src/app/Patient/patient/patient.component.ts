@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-patient',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './patient.component.css'
 })
 export class PatientComponent {
-
+  patientName: string;
+  constructor(private auth: AuthService){
+    this.patientName = auth.username;
+  }
 }

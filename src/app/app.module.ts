@@ -8,6 +8,10 @@ import { SignupComponent } from './signup/signup.component';
 import { PatientComponent } from './Patient/patient/patient.component';
 import { DoctorComponent } from './Doctor/doctor/doctor.component';
 import { AdminComponent } from './Admin/admin/admin.component';
+import { HttpClientModule } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+
 
 @NgModule({
   declarations: [
@@ -21,10 +25,14 @@ import { AdminComponent } from './Admin/admin/admin.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSnackBarModule
+
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
