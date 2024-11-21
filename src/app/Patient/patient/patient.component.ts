@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-patient',
@@ -8,7 +9,20 @@ import { AuthService } from '../../services/auth.service';
 })
 export class PatientComponent {
   patientName: string;
-  constructor(private auth: AuthService){
-    this.patientName = auth.username;
+
+  constructor(private authservice: AuthService){
+    authservice.viewprofile().subscribe({
+      next:(response) =>{
+        console.log(response)
+        this.patientName = response.firstName
+        localStorage.setItem('patientName', this.patientName)
+        
+        
+      }, 
+      error: (error: HttpErrorResponse) => {
+        console.error('Login failed:', error);
+
+      }
+    })
   }
 }

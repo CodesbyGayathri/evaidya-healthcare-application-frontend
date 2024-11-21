@@ -1,0 +1,37 @@
+  <!-- Header -->
+  <header class="bg-dark text-white py-3 px-5 d-flex justify-content-between">
+    <h1 class="h3 text-start"><i class="bi bi-clipboard-plus"></i> e-Vaidya</h1>
+    <h1 class="h5 text-end"><i class="bi bi-person-circle"></i> Hello, {{patientname}}</h1>
+  </header>
+<br>
+<div class="medical-chart-container">
+    <h1>Medical Chart</h1>
+    <mat-card class="medical-card">
+      <mat-card-header>
+        <mat-card-title>Diagnosis</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <textarea matInput rows="4" readonly class="readonly-textarea">{{ diagnosis }}</textarea>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card class="medical-card">
+      <mat-card-header>
+        <mat-card-title>Treatment</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <textarea matInput rows="4" readonly class="readonly-textarea">{{ treatment }}</textarea>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card class="medical-card">
+      <mat-card-header>
+        <mat-card-title>Allergies</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <textarea matInput rows="4" readonly class="readonly-textarea">{{ allergies }}</textarea>
+      </mat-card-content>
+    </mat-card>
+    <br>
+  </div>
+  

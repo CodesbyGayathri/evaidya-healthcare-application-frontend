@@ -1,0 +1,48 @@
+  <!-- Header -->
+  <header class="bg-dark text-white py-3 px-5 d-flex justify-content-between">
+    <h1 class="h3 text-start"><i class="bi bi-clipboard-plus"></i> e-Vaidya</h1>
+    <h1 class="h5 text-end"><i class="bi bi-person-circle"></i> Hello, {{patientName}}</h1>
+  </header>
+<br>
+<div class="doctor-table-container">    
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- First Name Column -->
+      <ng-container matColumnDef="Doctor">
+        <mat-header-cell *matHeaderCellDef> Doctor </mat-header-cell>
+        <mat-cell *matCellDef="let apt"> {{ apt.doctor.firstName }} {{ apt.doctor.lastName }} </mat-cell>
+      </ng-container>
+  
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="AppointmentDate">
+        <mat-header-cell *matHeaderCellDef> Appointment Date </mat-header-cell>
+        <mat-cell *matCellDef="let apt"> {{ apt.appointmentDate }} </mat-cell>
+      </ng-container>
+  
+      <!-- Specialization Column -->
+      <ng-container matColumnDef="AppointmentTime">
+        <mat-header-cell *matHeaderCellDef> Appointment Time </mat-header-cell>
+        <mat-cell *matCellDef="let apt"> {{ apt.appointmentTime }} </mat-cell>
+      </ng-container>
+  
+      <!-- Years of Experience Column -->
+      <ng-container matColumnDef="Status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let apt"> {{ apt.status }} </mat-cell>
+      </ng-container>
+  
+      <!-- Action Column -->
+      <ng-container matColumnDef="ViewPrescription">
+        <mat-header-cell *matHeaderCellDef> View Prescription </mat-header-cell>
+        <mat-cell *matCellDef="let apt">
+          <button class="btn btn-primary" (click)="onViewPrescription(apt.id, apt.patient.id)">
+            view prescription
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Header and Rows -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  

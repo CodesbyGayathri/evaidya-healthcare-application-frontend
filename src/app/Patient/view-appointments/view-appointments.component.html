@@ -1,0 +1,57 @@
+  <!-- Header -->
+  <header class="bg-dark text-white py-3 px-5 d-flex justify-content-between">
+    <h1 class="h3 text-start"><i class="bi bi-clipboard-plus"></i> e-Vaidya</h1>
+    <h1 class="h5 text-end"><i class="bi bi-person-circle"></i> Hello, {{patientname}}</h1>
+  </header>
+<br>
+<div class="doctor-table-container">   
+    <div class="calendar-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Select Appointment Date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" [matDatepickerFilter]="dateFilter">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- First Name Column -->
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+        <mat-cell *matCellDef="let doctor"> {{ doctor.firstName }} </mat-cell>
+      </ng-container>
+  
+      <!-- Last Name Column -->
+      <ng-container matColumnDef="lastName">
+        <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+        <mat-cell *matCellDef="let doctor"> {{ doctor.lastName }} </mat-cell>
+      </ng-container>
+  
+      <!-- Specialization Column -->
+      <ng-container matColumnDef="specialization">
+        <mat-header-cell *matHeaderCellDef> Specialization </mat-header-cell>
+        <mat-cell *matCellDef="let doctor"> {{ doctor.specialization }} </mat-cell>
+      </ng-container>
+  
+      <!-- Years of Experience Column -->
+      <ng-container matColumnDef="yearsOfExperience">
+        <mat-header-cell *matHeaderCellDef> Years of Experience </mat-header-cell>
+        <mat-cell *matCellDef="let doctor"> {{ doctor.yearsOfExperience }} </mat-cell>
+      </ng-container>
+  
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Slots </mat-header-cell>
+        <mat-cell *matCellDef="let doctor">
+          <button class="btn btn-primary" (click)="onDoctorClick(doctor.doctorId, selectedDate, doctor.firstName, doctor.lastName)">
+            view slots
+          </button>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Header and Rows -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  

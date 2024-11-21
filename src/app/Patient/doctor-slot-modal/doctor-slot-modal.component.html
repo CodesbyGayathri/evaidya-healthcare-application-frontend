@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Available appointment slots for {{doctorname}}</h2>
+<mat-dialog-content>
+  <div class="slots-container">
+    <div
+      *ngFor="let slot of slots.availableSlots"
+      class="slot available"
+      (click)="selectSlot(slot)"
+      [class.selected]="selectedSlot === slot">
+      {{ slot }}
+    </div>
+    <div
+      *ngFor="let slot of slots.bookedSlots"
+      class="slot booked">
+      {{ slot }}
+    </div>
+  </div>
+
+  <mat-form-field appearance="fill" class="reason-field">
+    <mat-label>Reason for Visit</mat-label>
+    <textarea matInput [(ngModel)]="reasonForVisit"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button class="btn btn-primary" mat-dialog-close>Cancel</button>  
+  <button class="btn btn-success" (click)="bookSlot()">Book Slot</button>
+</mat-dialog-actions>

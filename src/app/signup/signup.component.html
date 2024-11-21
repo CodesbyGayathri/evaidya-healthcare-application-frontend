@@ -11,16 +11,16 @@
 
     <div class="mb-3">
       <label for="firstname" class="form-label">First Name</label>
-      <input type="text" id="firstname" class="form-control" formControlName="firstname">
-      <div *ngIf="signupForm.get('firstname')?.invalid && signupForm.get('firstname')?.touched" class="text-danger">
+      <input type="text" id="firstname" class="form-control" formControlName="firstName">
+      <div *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched" class="text-danger">
         Please enter your First Name.
       </div>
     </div>
 
     <div class="mb-3">
       <label for="lastname" class="form-label">Last Name</label>
-      <input type="text" id="lastname" class="form-control" formControlName="lastname">
-      <div *ngIf="signupForm.get('lastname')?.invalid && signupForm.get('lastname')?.touched" class="text-danger">
+      <input type="text" id="lastame" class="form-control" formControlName="lastName">
+      <div *ngIf="signupForm.get('lastName')?.invalid && signupForm.get('lastName')?.touched" class="text-danger">
         Please enter your Last Name.
       </div>
     </div>

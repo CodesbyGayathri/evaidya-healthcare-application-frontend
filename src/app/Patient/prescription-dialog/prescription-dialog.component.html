@@ -1,0 +1,37 @@
+<mat-dialog-content>
+    <mat-card class="card">
+      <mat-card-title class="title">Appointment Details</mat-card-title>
+      <mat-card-content>
+        <h3>Apppointment Date: {{ data.appointment.appointmentDate }}</h3>
+        <h3>Appointment Time: {{ data.appointment.appointmentTime }}</h3>
+        <h3>Reason for Appointment: {{ data.appointment.reasonForAppointment }}</h3>
+        <h3>Status of Appointment: {{ data.appointment.status }}</h3>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card class="card">
+      <mat-card-title class="title">Doctor Details</mat-card-title>
+      <mat-card-content>
+        <h3>Doctor Name: Dr. {{ data.appointment.doctor.firstName }} {{ data.appointment.doctor.lastName }}</h3>
+        <h3>Specialization: {{ data.appointment.doctor.specialization }}</h3>
+        <h3>Experience: {{ data.appointment.doctor.yearsOfExperience }} years</h3>
+      </mat-card-content>
+    </mat-card>
+
+  
+    <mat-card class="card">
+      <mat-card-title class="title">Prescription</mat-card-title>
+      <mat-card-content>
+        <h3>Date: {{ data.prescriptionDate | date }}</h3>
+        <h3>Medication Name: {{ data.medicationName }}</h3>
+        <h3>Dosage: {{ data.dosage }}</h3>
+        <h3>Frequency: {{ data.frequency }}</h3>
+        <h3>Notes: {{ data.notes }}</h3>
+      </mat-card-content>
+    </mat-card>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button class="btn btn-danger" (click)="closeDialog()">Close</button>
+  </mat-dialog-actions>
+  

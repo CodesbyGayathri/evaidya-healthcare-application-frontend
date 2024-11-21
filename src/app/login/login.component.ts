@@ -27,9 +27,22 @@ export class LoginComponent {
       console.log(this.loginForm.value.username);
       this.authService.login(credentials).subscribe({
         next: (response) => {
-          console.log('Login successful:', response);
-          
-          this.route.navigate(['/patient']);
+          const token = response.headers.get('Authorization'); // Adjust key as needed
+          if (token) {
+             localStorage.setItem('jwtToken', token); // Use sessionStorage if preferred
+             console.log(localStorage.getItem('jwtToken'))
+                     }
+          if (response.body.role == 'PATIENT'){
+              this.authService.userid = response.body.patientId
+              localStorage.setItem('userid', response.body.patientId);
+              this.route.navigate(['/patient']);
+          }
+          if (response.body.role == 'ADMIN'){
+            this.authService.userid = response.body.userid
+            localStorage.setItem('userid', response.body.userid);
+            this.route.navigate(['/admin']);
+        }
+
         }, 
         error: (error: HttpErrorResponse) => {
           console.error('Login failed:', error);
