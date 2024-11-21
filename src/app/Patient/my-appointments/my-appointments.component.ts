@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppointmentService } from '../../services/appointment.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PrescriptionDialogComponent } from '../prescription-dialog/prescription-dialog.component';
+import { NoPrescriptionDialogComponent } from '../no-prescription-dialog/no-prescription-dialog.component';
 
 @Component({
   selector: 'app-my-appointments',
@@ -38,7 +39,15 @@ export class MyAppointmentsComponent {
           data: response[0],
           width: '75%', // Set dialog width to 75% of the screen
           height: 'auto'
-        });}
+        });
+      }
+      else{
+        this.dialog.open(NoPrescriptionDialogComponent, {
+          data: "",
+          width: '50%', // Set dialog width to 75% of the screen
+          height: 'auto'
+        });
+      }
     })
   }
 

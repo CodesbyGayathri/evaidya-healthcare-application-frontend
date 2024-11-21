@@ -42,6 +42,11 @@ export class LoginComponent {
             localStorage.setItem('userid', response.body.userid);
             this.route.navigate(['/admin']);
         }
+        if (response.body.role == 'DOCTOR'){
+          this.authService.userid = response.body.userid
+          localStorage.setItem('userid', response.body.userid);
+          this.route.navigate(['/doctor']);
+      }
 
         }, 
         error: (error: HttpErrorResponse) => {

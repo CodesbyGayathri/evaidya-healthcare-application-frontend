@@ -27,6 +27,7 @@ import { DoctorSlotModalComponent } from './Patient/doctor-slot-modal/doctor-slo
 import { MatDialogModule } from '@angular/material/dialog';
 import { MyAppointmentsComponent } from './Patient/my-appointments/my-appointments.component';
 import { PrescriptionDialogComponent } from './Patient/prescription-dialog/prescription-dialog.component';
+import { NoPrescriptionDialogComponent } from './Patient/no-prescription-dialog/no-prescription-dialog.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PrescriptionDialogComponent } from './Patient/prescription-dialog/presc
     ViewAppointmentsComponent,
     DoctorSlotModalComponent,
     MyAppointmentsComponent,
-    PrescriptionDialogComponent
+    PrescriptionDialogComponent,
+    NoPrescriptionDialogComponent
   ],
   imports: [
     BrowserModule,
