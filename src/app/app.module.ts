@@ -28,6 +28,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MyAppointmentsComponent } from './Patient/my-appointments/my-appointments.component';
 import { PrescriptionDialogComponent } from './Patient/prescription-dialog/prescription-dialog.component';
 import { NoPrescriptionDialogComponent } from './Patient/no-prescription-dialog/no-prescription-dialog.component';
+import { AddDoctorComponent } from './Admin/add-doctor/add-doctor.component';
+import { ManageDoctorsComponent } from './Admin/manage-doctors/manage-doctors.component';
+import { ManagePatientComponent } from './Admin/manage-patient/manage-patient.component';
+import { ViewAllAppointmentsComponent } from './Admin/view-all-appointments/view-all-appointments.component';
+import { MatLabel } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,11 @@ import { NoPrescriptionDialogComponent } from './Patient/no-prescription-dialog/
     DoctorSlotModalComponent,
     MyAppointmentsComponent,
     PrescriptionDialogComponent,
-    NoPrescriptionDialogComponent
+    NoPrescriptionDialogComponent,
+    AddDoctorComponent,
+    ManageDoctorsComponent,
+    ManagePatientComponent,
+    ViewAllAppointmentsComponent
   ],
   imports: [
     BrowserModule,
@@ -60,6 +69,7 @@ import { NoPrescriptionDialogComponent } from './Patient/no-prescription-dialog/
     MatFormFieldModule,
     FormsModule,
     MatDialogModule,
+    MatLabel
 
 
   ],
