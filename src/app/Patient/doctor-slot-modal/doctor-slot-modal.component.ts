@@ -48,6 +48,7 @@ export class DoctorSlotModalComponent {
      this.appointmentservice.bookSlot(bookingDetails).subscribe(response =>{
       console.log(response)
      })
+     alert("Your Appointment is booked successfully!")
     
     this.dialogRef.close();
   }

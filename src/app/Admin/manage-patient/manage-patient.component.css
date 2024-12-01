@@ -1,0 +1,33 @@
+.table-container {
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-input {
+    width: 300px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .mat-elevation-z8 {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  table {
+    width: 100%;
+  }
+  

@@ -44,7 +44,8 @@ export class LoginComponent {
         }
         if (response.body.role == 'DOCTOR'){
           this.authService.userid = response.body.userid
-          localStorage.setItem('userid', response.body.userid);
+          localStorage.setItem('docId', response.body.doctorId);
+          console.log(response)
           this.route.navigate(['/doctor']);
       }
 

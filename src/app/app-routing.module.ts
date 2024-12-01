@@ -12,6 +12,10 @@ import { MyAppointmentsComponent } from './Patient/my-appointments/my-appointmen
 import { AddDoctorComponent } from './Admin/add-doctor/add-doctor.component';
 import { ManageDoctorsComponent } from './Admin/manage-doctors/manage-doctors.component';
 import { ManagePatientComponent } from './Admin/manage-patient/manage-patient.component';
+import { EmailComponent } from './email/email.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ManageAppointmentsComponent } from './Doctor/manage-appointments/manage-appointments.component';
+import { UpdatePasswordComponent } from './update-password/update-password.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,6 +31,10 @@ const routes: Routes = [
   { path: 'managedoctor', component: ManageDoctorsComponent},
   { path: 'managepatient', component: ManagePatientComponent},
   { path: 'viewallappointments', component: ViewAppointmentsComponent},
+  { path: 'email', component: EmailComponent},
+  { path: 'resetmail', component: ResetPasswordComponent},
+  { path: 'managedoctorappt', component: ManageAppointmentsComponent},
+  { path: 'changepassword', component: UpdatePasswordComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 
 ];

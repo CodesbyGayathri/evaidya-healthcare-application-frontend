@@ -48,6 +48,23 @@ export class AuthService {
       },
     });
   }
+
+  resetPassword(data): Observable<any> {
+    return this.http.post(`${this.apiUrl}/user/updatePassword`, data, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
+  updatePassword(passwordUpdateData): Observable<any> {
+    return this.http.post(`${this.apiUrl}/api/user/changePassword`, passwordUpdateData, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('jwtToken'), // Include JWT token
+      },
+    });
+  }
     
   }
 

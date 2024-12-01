@@ -1,0 +1,35 @@
+  <!-- Header -->
+  <header class="bg-dark text-white py-3 px-5 d-flex justify-content-between">
+    <h1 class="h3 text-start"><i class="bi bi-clipboard-plus"></i> e-Vaidya</h1>
+  </header>
+<br>
+<h2 mat-dialog-title>Add Medication & Notes</h2>
+<mat-dialog-content>
+  <div *ngFor="let medication of medications; let i = index" class="medication-row">
+    <mat-form-field appearance="outline" style="margin: 5px;">
+      <mat-label>Medication Name</mat-label>
+      <input matInput [(ngModel)]="medication.medicationName" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Dosage</mat-label>
+      <input matInput [(ngModel)]="medication.dosage" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Frequency</mat-label>
+      <input matInput [(ngModel)]="medication.frequency" />
+    </mat-form-field>
+    <button mat-icon-button color="warn" (click)="removeMedication(i)" *ngIf="medications.length > 1">
+     Delete
+    </button>
+  </div>
+
+
+  <mat-form-field appearance="outline" class="notes-field">
+    <mat-label>Notes</mat-label>
+    <textarea matInput [(ngModel)]="notes"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="btn btn-primary" style="margin-left: 5px;" (click)="onCancel()">Cancel</button>
+  <button class="btn btn-success" style="margin-left: 5px;" color="primary" (click)="onSubmit()">Submit</button>
+</mat-dialog-actions>

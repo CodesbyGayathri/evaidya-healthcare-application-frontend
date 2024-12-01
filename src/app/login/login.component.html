@@ -4,9 +4,10 @@
       <h1 class="h3"><i class="bi bi-clipboard-plus"></i> e-Vaidya</h1>
   </header>
   <br>
+<div class="background-div" [ngStyle]="{ 'background-image': 'url(/assets/bgimg.jpeg)' }">
+
 <div class="container">
     <h2 class="mb-4 text-center">Login</h2>
-    
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <!-- Email Input -->
       <div class="mb-3">
@@ -40,4 +41,8 @@
     <div class="text-center p-2">
     <p>New Patient?<a routerLink="/signup">Register/SignUp</a></p>
     </div>
+    <div class="text-center p-2">
+      <p>Forgot Password?<a routerLink="/email">Reset Password</a></p>
+      </div>
   </div>
+</div>

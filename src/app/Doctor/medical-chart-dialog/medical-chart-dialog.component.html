@@ -1,0 +1,57 @@
+  <!-- Header -->
+  <header class="bg-dark text-white py-3 px-5 d-flex justify-content-between">
+    <h1 class="h3 text-start"><i class="bi bi-clipboard-plus"></i> e-Vaidya</h1>
+  </header>
+<br>
+
+<mat-dialog-content>
+  <form>
+    <!-- Past Fields -->
+    <h3>Past Medical Information</h3>
+    <mat-form-field class="full-width fld" appearance="fill">
+      <mat-label>Past Diagnosis</mat-label>
+      <textarea matInput [disabled]="true" [(ngModel)]="medicalChart.pastDiagnosis" name="pastDiagnosis"></textarea>
+    </mat-form-field>
+<br>
+    <mat-form-field class="full-width fld" appearance="fill">
+      <mat-label>Past Treatment</mat-label>
+      <textarea matInput [disabled]="true" [(ngModel)]="medicalChart.pastTreatment" name="pastTreatment"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="full-width fld" appearance="fill">
+      <mat-label>Past Allergies</mat-label>
+      <textarea matInput [disabled]="true" [(ngModel)]="medicalChart.pastAllergies" name="pastAllergies"></textarea>
+    </mat-form-field>
+
+    <!-- Button to Show New Fields -->
+     <div>
+    <button class="btn btn-primary" color="primary" *ngIf="!showNewFields" (click)="showNewFields = true">Add New Diagnosis</button>
+</div>
+    <!-- New Fields -->
+    <div *ngIf="showNewFields">
+      <h3>New Medical Information</h3>
+      <mat-form-field class="full-width fld" appearance="fill">
+        <mat-label>New Diagnosis</mat-label>
+        <textarea matInput [(ngModel)]="medicalChart.newDiagnosis" name="newDiagnosis"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-width fld" appearance="fill">
+        <mat-label>New Treatment</mat-label>
+        <textarea matInput [(ngModel)]="medicalChart.newTreatment" name="newTreatment"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="full-width fld" appearance="fill">
+        <mat-label>New Allergies</mat-label>
+        <textarea matInput [(ngModel)]="medicalChart.newAllergies" name="newAllergies"></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <!-- Submit Button -->
+  <button class="btn btn-success" style="margin-left: 5px;" color="accent" (click)="submitMedicalChart()">Submit</button>
+
+  <!-- Close Modal -->
+  <button class="btn btn-primary" style="margin-left: 5px;" mat-dialog-close>Close</button>
+</mat-dialog-actions>

@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Update Appointment Status</h2>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Select Status</mat-label>
+    <mat-select [(value)]="selectedStatus">
+      <mat-option [value]="0">Completed</mat-option>
+      <mat-option [value]="1">No-Show</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button class="btn btn-danger" (click)="onCancel()">Cancel</button>
+  <button style="margin-left: 5px;" class="btn btn-primary" color="primary" (click)="onConfirm()">Update</button>
+</div>

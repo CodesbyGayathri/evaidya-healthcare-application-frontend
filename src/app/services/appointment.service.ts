@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -42,6 +42,52 @@ export class AppointmentService {
     const url = `${this.apiUrl}/api/prescription/view/prescription/${patientId}/${appointmentId}`
     return this.http.get<any>(url, {
       headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('jwtToken') }
+    });
+  }
+
+  getAppointments(): Observable<any> {
+    const url = `${this.apiUrl}/api/appointment/view/patient/${localStorage.getItem('userid')}`
+    return this.http.get<any>(url, {
+      headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('jwtToken') }
+    });
+  }
+
+  getAppointmentsbydoc(): Observable<any> {
+    const url = `${this.apiUrl}/api/appointment/view/doctor/${localStorage.getItem("docId")}`
+    return this.http.get<any>(url, {
+      headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('jwtToken') }
+    });
+  }
+
+  updateAppointmentStatus(appointmentId: number, statusCode: number): Observable<any> {
+    const params = new HttpParams().set('status', statusCode.toString());
+    const url = `${this.apiUrl}/api/appointment/updateAppointmentStatus/${appointmentId}`;
+  
+    return this.http.put<any>(url, {}, { params,  headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('jwtToken') } });
+  }
+
+  updatePrescriptionNotes(result):Observable<any>{
+    const url = `${this.apiUrl}/api/prescription/updatePrescriptionNotes`
+    return this.http.post(url, result, {
+      headers: { 'Content-Type': 'application/json', Authorization: localStorage.getItem('jwtToken') }
+    });
+  }
+
+  patientmedicalchart(patientId): Observable<any> {
+    return this.http.post(`${this.apiUrl}/api/medicalChart/getMedicalChart/${patientId}`,{} , {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('jwtToken'), // Include JWT token
+      },
+    });
+  }
+
+  updateMedicalChart(patientdata):Observable<any>{
+    return this.http.post(`${this.apiUrl}/api/medicalChart/update`, patientdata , {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: localStorage.getItem('jwtToken'), // Include JWT token
+      },
     });
   }
 

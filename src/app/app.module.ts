@@ -33,6 +33,14 @@ import { ManageDoctorsComponent } from './Admin/manage-doctors/manage-doctors.co
 import { ManagePatientComponent } from './Admin/manage-patient/manage-patient.component';
 import { ViewAllAppointmentsComponent } from './Admin/view-all-appointments/view-all-appointments.component';
 import { MatLabel } from '@angular/material/form-field';
+import { EmailComponent } from './email/email.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ManageAppointmentsComponent } from './Doctor/manage-appointments/manage-appointments.component';
+import { UpdateAppointmentStatusDialogComponent } from './update-appointment-status-dialog/update-appointment-status-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MedicationModalComponent } from '../app/Doctor/medication-modal/medication-modal.component';
+import { MedicalChartDialogComponent } from './Doctor/medical-chart-dialog/medical-chart-dialog.component';
+import { UpdatePasswordComponent } from './update-password/update-password.component'
 
 @NgModule({
   declarations: [
@@ -52,7 +60,14 @@ import { MatLabel } from '@angular/material/form-field';
     AddDoctorComponent,
     ManageDoctorsComponent,
     ManagePatientComponent,
-    ViewAllAppointmentsComponent
+    ViewAllAppointmentsComponent,
+    EmailComponent,
+    ResetPasswordComponent,
+    ManageAppointmentsComponent,
+    UpdateAppointmentStatusDialogComponent,
+    MedicationModalComponent,
+    MedicalChartDialogComponent,
+    UpdatePasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +84,8 @@ import { MatLabel } from '@angular/material/form-field';
     MatFormFieldModule,
     FormsModule,
     MatDialogModule,
-    MatLabel
+    MatLabel,
+    MatSelectModule
 
 
   ],
