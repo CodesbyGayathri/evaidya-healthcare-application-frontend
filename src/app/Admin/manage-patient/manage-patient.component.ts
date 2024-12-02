@@ -44,6 +44,11 @@ export class ManagePatientComponent {
     this.admin.DeletePatient(patientId).subscribe(res => {
       console.log(res)
     })
+    this.admin.GetPatients().subscribe(response => {
+      console.log(response)
+      this.patients = response
+      this.dataSource = new MatTableDataSource(this.patients);
+    })
   }
 
 }
