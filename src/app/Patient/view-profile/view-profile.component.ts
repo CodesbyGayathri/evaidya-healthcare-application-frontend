@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { response } from 'express';
+import { response, Router } from 'express';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Patient } from '../../Models/patient.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -62,6 +62,8 @@ export class ViewProfileComponent {
     console.log(this.patientForm.value)
       this.authservice.updatePatientProfile(this.patientForm.value).subscribe((response) => {
         console.log('Profile updated successfully', response);
+       alert('Profile updated successfully')
+       
       });
     }
   }

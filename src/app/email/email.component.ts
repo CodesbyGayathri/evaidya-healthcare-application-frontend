@@ -17,6 +17,7 @@ export class EmailComponent {
     this.emailService.sendEmail(this.toEmail)
       .then((response) => {
         console.log('Email sent successfully', response);
+        alert('Reset link sent to your Email.')
       })
       .catch((error) => {
         console.error('Error sending email', error);

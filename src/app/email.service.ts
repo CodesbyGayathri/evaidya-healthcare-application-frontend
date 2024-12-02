@@ -19,5 +19,6 @@ export class EmailService {
     };
 
     return emailjs.send(this.serviceID, this.templateID, templateParams, this.userID);
+  
   }
 }
