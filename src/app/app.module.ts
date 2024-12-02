@@ -40,7 +40,8 @@ import { UpdateAppointmentStatusDialogComponent } from './update-appointment-sta
 import { MatSelectModule } from '@angular/material/select';
 import { MedicationModalComponent } from '../app/Doctor/medication-modal/medication-modal.component';
 import { MedicalChartDialogComponent } from './Doctor/medical-chart-dialog/medical-chart-dialog.component';
-import { UpdatePasswordComponent } from './update-password/update-password.component'
+import { UpdatePasswordComponent } from './update-password/update-password.component';
+import { DoctorAddedComponent } from './Doctor/doctor-added/doctor-added.component'
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { UpdatePasswordComponent } from './update-password/update-password.compo
     UpdateAppointmentStatusDialogComponent,
     MedicationModalComponent,
     MedicalChartDialogComponent,
-    UpdatePasswordComponent
+    UpdatePasswordComponent,
+    DoctorAddedComponent
   ],
   imports: [
     BrowserModule,

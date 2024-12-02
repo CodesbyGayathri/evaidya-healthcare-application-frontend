@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AdminService } from '../../services/admin.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DoctorAddedComponent } from '../../Doctor/doctor-added/doctor-added.component';
 
 @Component({
   selector: 'app-add-doctor',
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AddDoctorComponent {
   doctorForm: FormGroup;
-  constructor(private fb: FormBuilder, private admin: AdminService){
+  constructor(private fb: FormBuilder, private dialog: MatDialog, private admin: AdminService){
     this.doctorForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -32,20 +34,16 @@ export class AddDoctorComponent {
       const formData = this.doctorForm.value;
       console.log('Submitting form data:', formData);
 
-      this.admin.AddDoctor(formData).subscribe(
-        response => {
-          console.log('Doctor created successfully:', response);
-          alert('Doctor created successfully!');
-        },
-        error => {
-          console.error('Error creating doctor:', error);
-          alert('Error creating doctor. Please try again.');
-        }
-      );
-    } else {
-      console.error('Form is invalid');
-      alert('Please fill out the form correctly before submitting.');
+      this.admin.AddDoctor(formData).subscribe(res => {
+        console.log(res)
+        this.dialog.open(DoctorAddedComponent, {
+          width: '400px',
+          data: res
+        });
+      }
+      )
+        
+      }
     }
-  }
 
-}
+  }
