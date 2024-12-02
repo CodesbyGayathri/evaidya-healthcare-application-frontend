@@ -59,6 +59,10 @@ export class ManageAppointmentsComponent {
             if (index !== -1) {
               this.appointments[index] = updatedAppointment;
             }
+            this.appointmentService.getAppointmentsbydoc().subscribe(data => {
+              console.log(data)
+              this.appointments = data;
+            });
             console.log(`Appointment ID ${appointment.id} updated successfully.`);
           },
           error => {
@@ -106,6 +110,10 @@ export class ManageAppointmentsComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        this.appointmentService.getAppointmentsbydoc().subscribe(data => {
+          console.log(data)
+          this.appointments = data;
+        });
         console.log('Final Medical Chart Data:', result);
       }
     });
